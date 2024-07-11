@@ -1,8 +1,6 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { CreateMessageDto } from './dtos/create-message.dto';
 
-type createMessageProps = {
-  content: string
-}
 
 @Controller('/messages')
 export class MessagesController {
@@ -12,7 +10,7 @@ export class MessagesController {
   }
 
   @Post()
-  createMessage(@Body() body: createMessageProps) {
+  createMessage(@Body() body: CreateMessageDto) {
     return `${body.content}`;
   }
 
