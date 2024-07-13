@@ -1,14 +1,11 @@
-import { Body, Controller, Get, Param, Post, NotFoundException } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, NotFoundException, Injectable } from '@nestjs/common';
 import { CreateMessageDto } from './dtos/create-message.dto';
 import { MessagesService } from './messages.service';
 
 
 @Controller('/messages')
 export class MessagesController {
-  messagesService: MessagesService;
-
-  constructor() {
-    this.messagesService = new MessagesService();
+  constructor(public messagesService: MessagesService) {
   }
 
   @Get()
